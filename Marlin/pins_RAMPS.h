@@ -114,7 +114,7 @@
 #endif
 
 // Augmentation for auto-assigning RAMPS plugs
-#if DISABLED(IS_RAMPS_EEB) && DISABLED(IS_RAMPS_EEF) && DISABLED(IS_RAMPS_EFB) && DISABLED(IS_RAMPS_EFF) && DISABLED(IS_RAMPS_SF) && !PIN_EXISTS(MOSFET_D)
+#if DISABLED(IS_RAMPS_EEB) && DISABLED(IS_RAMPS_EEF) && DISABLED(IS_RAMPS_EFB) && DISABLED(IS_RAMPS_EFF) && DISABLED(IS_RAMPS_OPENPNP) && DISABLED(IS_RAMPS_SF) && !PIN_EXISTS(MOSFET_D)
   #if HOTENDS > 1
     #if TEMP_SENSOR_BED
       #define IS_RAMPS_EEB
@@ -162,6 +162,8 @@
   #define CONTROLLERFAN_PIN  -1
 #elif ENABLED(IS_RAMPS_SF)                     // Spindle, Fan
   #define FAN_PIN        RAMPS_D8_PIN
+#elif ENABLED(IS_RAMPS_OPENPNP)                // MOSFETS used for eg vacuum, led ring, actuator
+  #define HEATER_0_PIN   13                    // No use for heater, any sw interaction directed to onboard led, necessary to satisfy sensitive_pins check
 #else                                          // Non-specific are "EFB" (i.e., "EFBF" or "EFBE")
   #define FAN_PIN        RAMPS_D9_PIN
   #define HEATER_BED_PIN RAMPS_D8_PIN
