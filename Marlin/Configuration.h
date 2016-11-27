@@ -570,7 +570,7 @@
 // @section extruder
 
 #define DISABLE_E false // For all extruders
-#define DISABLE_INACTIVE_EXTRUDER true //disable only inactive extruders and keep active extruder enabled
+#define DISABLE_INACTIVE_EXTRUDER false //disable only inactive extruders and keep active extruder enabled--> keep control of rotation
 
 // @section machine
 
@@ -755,7 +755,7 @@
 //Z axis has 200 steps per rev, 16 microsteps, 20 teeth and gt2 i.e. 2mm per teeth
 //E axis has 200 steps per reve, 16 microsteps for 360 degrees = 8.88888889 steps per degree
 
-#define DEFAULT_MAX_FEEDRATE          {300, 300, 5, 25}    // (mm/sec)
+#define DEFAULT_MAX_FEEDRATE          {1000, 1000, 30, 90}    // (mm/sec)
 #define DEFAULT_MAX_ACCELERATION      {3000,3000,100,10000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for Skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration in mm/s^2 for printing moves
